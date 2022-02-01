@@ -559,6 +559,22 @@
     "1640543480cceee090": {
       "type": "testimonials",
       "blocks": {
+        "4f7ae7aa-e403-42a1-9941-989ec9a7e63d": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5_stars",
+            "quote": "Revolutionary. Even on the driest days, insertion was easy and painless. It really is your average tampon but better. Its so exciting that more inclusive and environmentally mindful options like this exist for people who menstruate!",
+            "title": "Cristina C."
+          }
+        },
+        "309a1d58-23f8-4034-8f7c-670ba55e7bd4": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5_stars",
+            "quote": "I was surprised by how much I loved this product. I've never used a lubricant with a tampon before, but it made a world of difference in my comfort levels when inserting. I also love that there aren't any funky chemicals\/dyes in the tampon.",
+            "title": "Priya"
+          }
+        },
         "1640543480f7fbcf27-0": {
           "type": "testimonial",
           "settings": {
@@ -606,6 +622,8 @@
         }
       },
       "block_order": [
+        "4f7ae7aa-e403-42a1-9941-989ec9a7e63d",
+        "309a1d58-23f8-4034-8f7c-670ba55e7bd4",
         "1640543480f7fbcf27-0",
         "1640543480f7fbcf27-1",
         "1640543480f7fbcf27-2",
