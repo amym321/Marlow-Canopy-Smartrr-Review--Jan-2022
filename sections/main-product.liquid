@@ -139,17 +139,18 @@
               {% endif %}
 
             {%- when 'price' -%}
-            {% if product.handle == 'tampon-lubricant' or product.handle == 'the-marlow-tote' or product.handle == 'marlow-gift-card-1' %}
-              <div id="price"
+            <!-- code changed - am. removed original price code. smartrr does all pricing -->
+              <!-- <div id="price"
                    class="product-price product-detail__gap-sm {% if current_variant.compare_at_price > current_variant.price %}on-sale{% endif %}" {{ block.shopify_attributes }}>
                 <span class="current-price theme-money">{% render 'price', price: current_variant.price %}</span>
-                {% if current_variant.compare_at_price > current_variant.price %}
-                  <span class="was-price theme-money">{% render 'price', price: current_variant.compare_at_price %}</span>
-                {% endif %}
+                 if current_variant.compare_at_price > current_variant.price 
+                  <span class="was-price theme-money">
+                     render 'price', price: current_variant.compare_at_price 
+                  </span>
+                 endif 
 
-                {% render 'unit-price', variant: current_variant %}
-              </div>
-            {% endif %}
+                 render 'unit-price', variant: current_variant 
+              </div> -->
 
           <div class="data-smartrr-top-price" data-smartrr-product-id="{{ product.id }}"
                data-smartrr-price-style="original-compare"  class="data-smartrr-top-price">
@@ -211,36 +212,51 @@
               {% endif %}
 
             {%- when 'variant_picker' -%}
-              <div data-smartrr-choose-sub class = 'dropdown-select'>
-                {% for variant in product.variants %}
-                {% if variant.title contains "Subscription" %}
-                <label class="input">
-                  <input type="radio" data-smartrr-variant-input = 'sub' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
-                  <div data-smartrr-variant-id="{{ variant.id }}">{{ variant.title }}</div>
-                </label>
-                {% endif %}
-                {% endfor %}
+            <!-- code changed - am. added dropdown -->
+              <div dropdown-multi-variants class="variant-select">
+                <div class="dropdown-options dropdown-field">
+                  <div onclick="dropdownMenu()" class="drop-button">
+                    <div class="dropdown-options">
+                      <svg id="dropdownSvgDown" height="25" viewBox="0 0 20 20" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"></path><path d="M0-.75h24v24H0z" fill="none"></path></svg>
+                      <svg id="dropdownSvgClose" xmlns="http://www.w3.org/2000/svg" class="svg-close hide-svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </div>
+                    {% if product.handle == 'marlow-tampons' or product.handle == 'bundle-save'  %}<div class="dropbtn">Select Absorbancy</div>{% endif %}
+                    {% if product.handle == 'marlow-gift-card-1' %}<div class="dropbtn">Select Denomination</div>{% endif %}
+                    <div id="dropdownSelections"  class="dropdown-content ">
+                      <!-- smartrr code -->
+                      <div data-smartrr-choose-sub class = 'dropdown-select'>
+                        {% for variant in product.variants %}
+                        {% if variant.title contains "Subscription" %}
+                        <label class="input">
+                          <input type="radio" data-smartrr-variant-input = 'sub' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
+                          <div data-smartrr-variant-id="{{ variant.id }}">{{ variant.title }}</div>
+                        </label>
+                        {% endif %}
+                        {% endfor %}
+                      </div>
+                      <div data-smartrr-choose-otp class = 'dropdown-select'>
+                        {% for variant in product.variants %}
+                        {% unless variant.title contains "Subscription" %}
+                        <label class="input">
+                          <input type="radio" data-smartrr-variant-input = 'otp' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
+                          <div data-smartrr-variant-id="{{ variant.id }}">{{ variant.title }}</div>
+                        </label>
+                        {% endunless %}
+                        {% endfor %}
+                      </div>
+
+                      {% if product.variants.size == 1 %}
+                      <style>
+                        [data-smartrr-choose-sub], [data-smartrr-choose-otp], [dropdown-multi-variants] {
+                          display: none;
+                        }
+                      </style>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              <div data-smartrr-choose-otp class = 'dropdown-select'>
-                {% for variant in product.variants %}
-                {% unless variant.title contains "Subscription" %}
-                <label class="input">
-                  <input type="radio" data-smartrr-variant-input = 'otp' value="{{ variant.id }}" name="id" {% if variant.id == product.selected_or_first_available_variant.id %}checked="checked"{% endif %}>
-                  <div data-smartrr-variant-id="{{ variant.id }}">{{ variant.title }}</div>
-                </label>
-                {% endunless %}
-                {% endfor %}
-              </div>
-
-              {% if product.variants.size == 1 %}
-              <style>
-                [data-smartrr-choose-sub], [data-smartrr-choose-otp] {
-                  display: none;
-                }
-              </style>
-              {% endif %}
-
 
               {% if product.available and block.settings.stock_warning_show %}
                 {%- if current_variant.inventory_management == 'shopify' and current_variant.inventory_quantity > 0 -%}
@@ -257,7 +273,6 @@
               {% endif %}
 
             <!-- code added - am. Benefits text depending on One-Time Purchase or Subscription checked -->
-            <!-- <br> -->
             {% for tag in product.tags %}
               {% if tag == 'benefits' %}
                 {% assign has_benefits = true %}
@@ -521,21 +536,20 @@
   {% render 'structured-data-product', product: product, current_variant: current_variant %}
 </div>
 
+<!--Start Stamped.io Auto Installation-->
+<div id="stamped-main-widget" class="stamped-main-widget" data-widget-style="standard" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" data-product-type="{{product.type}}" data-widget-language="{{shop.locale}}">{{ product.metafields.stamped.reviews }}</div>
+<!--End Stamped.io Auto Installation-->
+
 <!-- dropdown menu script for smartrr products -->
 <script>
   function dropdownMenu() {
     document.getElementById("dropdownSvgDown").classList.toggle("hide-svg");
     document.getElementById("dropdownSvgClose").classList.toggle("hide-svg");
-    document.getElementById("dropdownInitial").classList.toggle("show-sub");
-    if(document.getElementById("dropdownSub")){ document.getElementById("dropdownSub").classList.toggle("show-sub"); }
-    if(document.getElementById("dropdownOtp")){ document.getElementById("dropdownOtp").classList.toggle("show-sub"); }
+    document.getElementById("dropdownSelections").classList.toggle("show-sub");
+    // if(document.getElementById("dropdownSub")){ document.getElementById("dropdownSub").classList.toggle("show-sub"); }
+    // if(document.getElementById("dropdownOtp")){ document.getElementById("dropdownOtp").classList.toggle("show-sub"); }
   };
-
-  </script>
-
-<!--Start Stamped.io Auto Installation-->
-<div id="stamped-main-widget" class="stamped-main-widget" data-widget-style="standard" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" data-product-type="{{product.type}}" data-widget-language="{{shop.locale}}">{{ product.metafields.stamped.reviews }}</div>
-<!--End Stamped.io Auto Installation-->
+</script>
 
 {% schema %}
   {
