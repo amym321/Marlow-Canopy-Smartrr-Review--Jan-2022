@@ -540,17 +540,6 @@
 <div id="stamped-main-widget" class="stamped-main-widget" data-widget-style="standard" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" data-product-type="{{product.type}}" data-widget-language="{{shop.locale}}">{{ product.metafields.stamped.reviews }}</div>
 <!--End Stamped.io Auto Installation-->
 
-<!-- dropdown menu script for smartrr products -->
-<script>
-  function dropdownMenu() {
-    document.getElementById("dropdownSvgDown").classList.toggle("hide-svg");
-    document.getElementById("dropdownSvgClose").classList.toggle("hide-svg");
-    document.getElementById("dropdownSelections").classList.toggle("show-sub");
-    // if(document.getElementById("dropdownSub")){ document.getElementById("dropdownSub").classList.toggle("show-sub"); }
-    // if(document.getElementById("dropdownOtp")){ document.getElementById("dropdownOtp").classList.toggle("show-sub"); }
-  };
-</script>
-
 {% schema %}
   {
     "name": "Product pages",
