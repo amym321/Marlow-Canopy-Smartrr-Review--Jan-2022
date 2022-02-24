@@ -447,6 +447,7 @@
     },
     "1642804741a7a48de4": {
       "type": "rich-text",
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "",
