@@ -6,79 +6,33 @@
         "1478797384865-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Hero_Banner-02.png",
-            "mobile_image": "shopify:\/\/shop_images\/Hero_Banner-01_10fe520f-cead-4e2e-bf8a-46526831dbd9.png",
+            "image": "shopify:\/\/shop_images\/Marlow-Lifestyle1794.png",
+            "mobile_image": "shopify:\/\/shop_images\/Hero_Mobile_v2-02.png",
             "desktop_image_position": "center center",
             "mobile_image_position": "center bottom",
             "subheading": "",
-            "title": "Goodbye dry plastic stick 👋, <br> hello lubricated comfort.",
+            "title": "Experience periods, <br> comfortably.",
             "title_size": 50,
             "heading_h1": true,
-            "text": "<p>It's time for a smoother tampon experience.<\/p>",
-            "enlarge_text": true,
+            "text": "<p>From the awkward conversations <br\/>to the dry a** tampons, we’re<br\/>here to switch things up<br\/>and make periods <br\/>easier.<\/p>",
+            "enlarge_text": false,
             "button_1_link": "shopify:\/\/collections\/all",
             "button_1_label": "Shop Now",
-            "button_1_style": "secondary",
-            "button_2_link": "",
-            "button_2_label": "",
-            "button_2_style": "primary",
-            "text_alignment": "center right",
-            "mobile_text_alignment": "center right"
-          }
-        },
-        "1590330964852": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "desktop_image_position": "right top",
-            "mobile_image_position": "center center",
-            "subheading": "Subheading",
-            "title": "Tell your story",
-            "title_size": 60,
-            "heading_h1": false,
-            "text": "<p>Pair text with an image to tell a story<\/p>",
-            "enlarge_text": true,
-            "button_1_link": "",
-            "button_1_label": "",
             "button_1_style": "primary",
             "button_2_link": "",
             "button_2_label": "",
             "button_2_style": "primary",
-            "text_alignment": "center left",
-            "mobile_text_alignment": "left"
-          }
-        },
-        "1590331020519": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "desktop_image_position": "center center",
-            "mobile_image_position": "center center",
-            "subheading": "Subheading",
-            "title": "Tell your story",
-            "title_size": 60,
-            "heading_h1": false,
-            "text": "<p>Pair text with an image to tell a story<\/p>",
-            "enlarge_text": true,
-            "button_1_link": "",
-            "button_1_label": "",
-            "button_1_style": "primary",
-            "button_2_link": "",
-            "button_2_label": "",
-            "button_2_style": "primary",
-            "text_alignment": "center center",
-            "mobile_text_alignment": "center"
+            "text_alignment": "top center",
+            "mobile_text_alignment": "top right"
           }
         }
       },
       "block_order": [
-        "1478797384865-0",
-        "1590330964852",
-        "1590331020519"
+        "1478797384865-0"
       ],
       "settings": {
         "height": "fixed",
-        "height_desktop": 600,
+        "height_desktop": 620,
         "height_mobile": 640,
         "full_width": true,
         "mobile_overlay_under": false,
@@ -87,6 +41,49 @@
         "slide_navigation": "arrows",
         "autoplay": false,
         "autoplay_speed": 8
+      }
+    },
+    "164745611889049690": {
+      "type": "slideshow",
+      "blocks": {
+        "164745611830d6379c-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Press_Banner_v4-01_d3b1a0cd-6b7c-403f-a8ed-46541d64dba2.png",
+            "mobile_image": "shopify:\/\/shop_images\/Press_Banner_v4-02.png",
+            "desktop_image_position": "center center",
+            "mobile_image_position": "center center",
+            "subheading": "",
+            "title": "",
+            "title_size": 40,
+            "heading_h1": false,
+            "text": "",
+            "enlarge_text": true,
+            "button_1_link": "",
+            "button_1_label": "",
+            "button_1_style": "primary",
+            "button_2_link": "",
+            "button_2_label": "",
+            "button_2_style": "primary",
+            "text_alignment": "center center",
+            "mobile_text_alignment": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "164745611830d6379c-0"
+      ],
+      "settings": {
+        "height": "fixed",
+        "height_desktop": 200,
+        "height_mobile": 120,
+        "full_width": false,
+        "mobile_overlay_under": false,
+        "image_overlay_style": "none",
+        "slide_transition": "slide",
+        "slide_navigation": "arrows",
+        "autoplay": true,
+        "autoplay_speed": 7
       }
     },
     "164028610111be4388": {
@@ -648,6 +645,7 @@
   },
   "order": [
     "1478797384865",
+    "164745611889049690",
     "164028610111be4388",
     "16402859970d112418",
     "164031478591fe2f6d",
