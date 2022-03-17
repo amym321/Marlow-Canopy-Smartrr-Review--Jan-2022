@@ -641,6 +641,12 @@
         "autoplay_speed": 7,
         "use_dot_images": false
       }
+    },
+    "social_widget_39467": {
+      "type": "social-widget",
+      "settings": {
+        "social_widget_id": "39467"
+      }
     }
   },
   "order": [
@@ -661,6 +667,7 @@
     "16405449661b24bc10",
     "16405425823e9ea62c",
     "16405436177d889f64",
-    "1640543480cceee090"
+    "1640543480cceee090",
+    "social_widget_39467"
   ]
 }
