@@ -645,7 +645,18 @@
     "social_widget_39467": {
       "type": "social-widget",
       "settings": {
-        "social_widget_id": "39467"
+        "social_widget_id": "39467",
+        "social_product_id": "none",
+        "social_widget_type": "none"
+      }
+    },
+    "1647972685d23337f6": {
+      "type": "instafeed",
+      "settings": {
+        "heading_font": "helvetica_n4",
+        "heading_size": 20,
+        "feed_width": 100,
+        "html_area": ""
       }
     }
   },
@@ -668,6 +679,7 @@
     "16405425823e9ea62c",
     "16405436177d889f64",
     "1640543480cceee090",
-    "social_widget_39467"
+    "social_widget_39467",
+    "1647972685d23337f6"
   ]
 }
