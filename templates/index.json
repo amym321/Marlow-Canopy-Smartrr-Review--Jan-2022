@@ -644,6 +644,7 @@
     },
     "social_widget_39467": {
       "type": "social-widget",
+      "disabled": true,
       "settings": {
         "social_widget_id": "39467",
         "social_product_id": "none",
@@ -652,6 +653,7 @@
     },
     "1647972685d23337f6": {
       "type": "instafeed",
+      "disabled": true,
       "settings": {
         "heading_font": "helvetica_n4",
         "heading_size": 20,
