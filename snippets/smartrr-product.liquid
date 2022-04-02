@@ -168,6 +168,8 @@
       var grpSelectInput = ui.$form.querySelectorAll('[data-smartrr-selling-plan-group-input]');
       var variantDivSub = ui.$form.querySelector('[data-smartrr-choose-sub]')
       var variantDivOtp = ui.$form.querySelector('[data-smartrr-choose-otp]')
+      var variantLabelSub = ui.$form.querySelector('[data-smartrr-label-sub]')
+      var variantLabelOtp = ui.$form.querySelector('[data-smartrr-label-otp]')
       var variantButtons = ui.$form.querySelectorAll('[data-smartrr-variant-input]');
 
       variantButtons.forEach(function (variantInput) {
@@ -186,6 +188,10 @@
               }
             }
           }); */
+        }),
+        // open/close drop-down selector - am. click on variant in dropdown closes/opens the whole dropdown list - am
+        variantInput.addEventListener('click', function () {
+          document.getElementById("dropdownSelections").classList.toggle("show-sub");
         });
       });
 
@@ -195,6 +201,8 @@
           //document.getElementById("dropdownSubsequent").classList.remove("hide-initially");
           variantDivSub.classList.remove("hide");
           variantDivOtp.classList.add("hide");
+          variantLabelSub.classList.remove("hide");
+          variantLabelOtp.classList.add("hide");
           variantDivSub.getElementsByTagName("INPUT")[0].checked = true;
           var variant = ui.logic.apiGetVariantById(variantDivSub.getElementsByTagName("INPUT")[0].value);
           $(variantDivSub.getElementsByTagName("INPUT")[0]).trigger("change");
@@ -205,6 +213,8 @@
           //document.getElementById("dropdownSubsequent").classList.remove("hide-initially");
           variantDivSub.classList.add("hide");
           variantDivOtp.classList.remove("hide");
+          variantLabelSub.classList.add("hide");
+          variantLabelOtp.classList.remove("hide");
           variantDivOtp.getElementsByTagName("INPUT")[0].checked = true;
           var variant = ui.logic.apiGetVariantById(variantDivOtp.getElementsByTagName("INPUT")[0].value);
           $(variantDivOtp.getElementsByTagName("INPUT")[0]).trigger("change");
@@ -287,7 +297,12 @@
       var subText = ui.$form.querySelector("[data-smartrr-subscription-benefits] div")
       var grpSelect = ui.apiQuerySelectorAllDataTag('data-smartrr-selling-plan-group-id', ui.$form);
       var variant = ui.logic.apiGetVariantById(currentInfo.variantId);
-      var variantButtons = ui.$form.querySelectorAll('[data-smartrr-variant-input]')
+      var variantButtons = ui.$form.querySelectorAll('[data-smartrr-variant-input]');
+      var variantLabels = ui.$form.querySelectorAll('[data-smartrr-button-label]');
+      var variantLabelId = ui.$form.querySelectorAll('[data-variant-id]');
+      // var variantLabelSub = ui.$form.querySelectorAll('[data-smartrr-label-sub]');
+      // var variantLabelOtp = ui.$form.querySelectorAll('[data-smartrr-label-otp]');
+
       function insertUrlParam(key, value) {
         if (history.pushState) {
           let searchParams = new URLSearchParams(window.location.search);
@@ -321,6 +336,18 @@
           );
         }
       }
+
+      // change the top button to = selected dropdown variant on change - am
+      for (var i = 0; i < variantLabels.length; i++) {
+        if (variantLabels[i].dataset.buttonLabelId == currentInfo.variantId){
+          variantLabels[i].classList.add("show-button");
+          variantLabels[i].classList.remove("hide-button");
+        } else {
+          variantLabels[i].classList.remove("show-button");
+          variantLabels[i].classList.add("hide-button");
+        }
+      }
+
 
       grpSelect.forEach(function (grp) {
         if (variant.selling_plan_allocations && grp.dataset.smartrrSellingPlanGroupId !== "") {
@@ -373,8 +400,8 @@
   // code added - am. dropdown menu options for smartrr products
   function dropdownMenu() {
     // document.apiGetAttribute("rktheme-bundle-product").classList.toggle("hide-svg");
-    document.getElementById("dropdownSvgDown").classList.toggle("hide-svg");
-    document.getElementById("dropdownSvgClose").classList.toggle("hide-svg");
+    // document.getElementById("dropdownSvgDown").classList.toggle("hide-svg");
+    // document.getElementById("dropdownSvgClose").classList.toggle("hide-svg");
     document.getElementById("dropdownSelections").classList.toggle("show-sub");
   }
 
