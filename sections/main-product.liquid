@@ -214,8 +214,10 @@
             {%- when 'variant_picker' -%}
             <!--   added dropdown based on radio buttons - am -->
               {% for option in product.options_with_values %}
-                <div>{{ option.name }}</div>
-              {% endfor %}
+                {% if option.name != blank and  option.name != "Title" %}
+                  <div>{{ option.name }}</div>
+                {% endif %}
+              {% endfor  %}
               <div dropdown-multi-variants class="variant-select">
                 <div class="dropdown-options dropdown-field">
                   <div onclick="dropdownMenu()" class="drop-button">
